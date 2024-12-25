@@ -1,0 +1,287 @@
+:root {
+  --primary-color: #4361ee;
+  --complete-color: #2ec4b6;
+  --delete-color: #e71d36;
+  --bg-color: #f8f9fa;
+  --text-color: #2b2d42;
+  --light-text: #8d99ae;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+}
+
+header {
+  margin-bottom: 2rem;
+}
+
+h1 {
+  color: var(--text-color);
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+h1 i {
+  color: var(--primary-color);
+  margin-right: 10px;
+}
+
+.input-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+input {
+  flex: 1;
+  padding: 1rem;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+}
+
+button {
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+#addTask {
+  background-color: var(--primary-color);
+  color: white;
+  min-width: 50px;
+}
+
+#addTask:hover {
+  background-color: #324bd9;
+  transform: translateY(-2px);
+}
+
+.tasks-container {
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.tasks-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tasks-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.tasks-container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  margin-bottom: 0.8rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+li:hover {
+  background-color: #f1f3f5;
+  transform: translateX(5px);
+}
+
+li span {
+  flex: 1;
+  color: var(--text-color);
+  font-size: 1rem;
+  margin-right: 1rem;
+}
+
+li button {
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+  min-width: 40px;
+}
+
+li button:first-of-type {
+  background-color: var(--complete-color);
+  color: white;
+}
+
+li button:last-of-type {
+  background-color: var(--delete-color);
+  color: white;
+}
+
+li button:hover {
+  transform: scale(1.1);
+}
+
+.completed {
+  text-decoration: line-through;
+  color: var(--light-text) !important;
+}
+
+/* Estilos do Popup */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(3px);
+}
+
+.popup-overlay.active {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+.popup {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 90%;
+  transform: scale(0.7);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.popup-overlay.active .popup {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.popup h2 {
+  color: var(--text-color);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.popup h2 i {
+  color: var(--delete-color);
+}
+
+.popup p {
+  color: var(--light-text);
+  margin-bottom: 1.5rem;
+}
+
+.popup-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.popup-buttons button {
+  padding: 0.7rem 1.2rem;
+  font-size: 0.9rem;
+}
+
+#cancelDelete {
+  background-color: #e9ecef;
+  color: var(--text-color);
+}
+
+#cancelDelete:hover {
+  background-color: #dee2e6;
+}
+
+#confirmDelete {
+  background-color: var(--delete-color);
+  color: white;
+}
+
+#confirmDelete:hover {
+  background-color: #d00f28;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  input {
+    padding: 0.8rem;
+  }
+
+  li {
+    padding: 0.8rem;
+  }
+}
