@@ -1,6 +1,6 @@
 # 📝 Lista de Tarefas (Todo List)
 
-Uma aplicação web moderna e responsiva para gerenciar suas tarefas diárias, construída com HTML, CSS e JavaScript puro.
+Uma aplicação web moderna e responsiva para gerenciar suas tarefas diárias, construída com HTML, CSS e JavaScript.
 
 ## ✨ Funcionalidades
 
@@ -30,6 +30,7 @@ Uma aplicação web moderna e responsiva para gerenciar suas tarefas diárias, c
 ## 💻 Como Usar
 
 1. Clone o repositório:
+
 ```bash
 git clone [URL-do-repositório]
 ```
@@ -68,6 +69,7 @@ O projeto utiliza variáveis CSS para cores, permitindo fácil personalização:
 ## 🤝 Contribuindo
 
 Sinta-se à vontade para:
+
 1. Fazer um fork do projeto
 2. Criar uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
 3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
